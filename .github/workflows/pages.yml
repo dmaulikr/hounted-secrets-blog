@@ -15,7 +15,7 @@ jobs:
           go-version: stable
       - name: Install Hugo
         run: |
-          curl -L https://github.com/gohugoio/hugo/releases/download/v0.128.1/hugo_extended_0.128.1_linux-amd64.tar.gz | tar -xz
+          curl -L https://github.com/gohugoio/hugo/releases/download/v0.157.0/hugo_extended_0.128.1_linux-amd64.tar.gz | tar -xz
           sudo mv hugo /usr/local/bin/
       - name: Build
         run: hugo --minify
