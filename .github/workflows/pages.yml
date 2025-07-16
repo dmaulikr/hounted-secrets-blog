@@ -1,25 +1,27 @@
 name: Hugo-Pages
 on:
-  push:
+    push:
     branches: [ main ]
-  workflow_dispatch:
+    workflow_dispatch:
 jobs:
-  build:
+    build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
+        - uses: actions/checkout@v4
         with:
-          go-version: stable
-      - name: Install Hugo
+    submodules: 'recursive'
+        - uses: actions/setup-go@v5
+        with:
+            go-version: stable
+        - name: Install Hugo
         run: |
           curl -L https://github.com/gohugoio/hugo/releases/download/v0.128.1/hugo_extended_0.128.1_linux-amd64.tar.gz | tar -xz
           sudo mv hugo /usr/local/bin/
-      - name: Build
+        - name: Build
         run: hugo --minify
-      - name: Deploy
+        - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
-          publish_dir: ./public
-          publish_branch: gh-pages
-          github_token: ${{ secrets.PAT }}
+            publish_dir: ./public
+            publish_branch: gh-pages
+            github_token: ${{ secrets.PAT }}
