@@ -1,5 +1,5 @@
 baseURL = "https://dmaulikr.github.io/hounted-secrets-blog/"
-title   = "Hounted Secrets"
+title = "Hounted Secrets"
 languageCode = "en-us"
 enableRobotsTXT = true
 theme = "PaperMod"
@@ -8,13 +8,13 @@ theme = "PaperMod"
   pagerSize = 10
 
 [params]
-  env             = "production"
-  description     = "Daily doses of horror, suspense & mystery."
+  env = "production"
+  description = "Daily doses of horror, suspense & mystery."
   ShowReadingTime = true
-  defaultTheme    = "dark"
+  defaultTheme = "dark"
 
 [menu]
   [[menu.main]]
-    name   = "About"
-    url    = "/about/"
+    name = "About"
+    url = "/about/"
     weight = 10
