@@ -1,6 +1,10 @@
-{{ $asin   := .Get "asin" }}
-{{ $title  := .Get "title" }}
+{{ $asin  := .Get "asin" }}
+{{ $title := .Get "title" }}
+{{ $img   := .Get "img" | default "" }}
+{{ if eq $img "" }}
+  {{ $img = printf "https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=%s&MarketPlace=IN&ID=AsinImage&ServiceVersion=20070822&WS=1&tag=%s&language=en_IN" $asin site.Params.amazon.tag }}
+{{ end }}
 <a href="https://www.amazon.in/dp/{{ $asin }}/?tag={{ site.Params.amazon.tag }}" target="_blank" rel="nofollow noopener noreferrer">
-  <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN={{ $asin }}&MarketPlace=IN&ID=AsinImage&ServiceVersion=20070822&WS=1&tag={{ site.Params.amazon.tag }}&language=en_IN" alt="{{ $title }}" style="width:160px;height:auto;margin-bottom:0.5rem">
+  <img src="{{ $img }}" alt="{{ $title }}" style="width:160px;height:auto;margin-bottom:0.5rem">
   <div>{{ $title }}</div>
 </a>
