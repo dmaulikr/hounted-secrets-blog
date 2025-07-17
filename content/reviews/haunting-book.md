@@ -1,6 +1,6 @@
 +++
 date = '2025-07-17T20:22:20+05:30'
-draft = true
+draft = false
 title = 'Haunting Book'
 +++
 
