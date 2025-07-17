@@ -1,0 +1,24 @@
+name: Review-Generator
+on:
+  workflow_dispatch:        # run manually from the Actions tab
+  schedule:
+    - cron: '0 2 * * *'     # 07:30 IST every day
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate reviews from CSV
+        run: .github/scripts/generate_reviews.py
+      - name: Commit any new posts
+        run: |
+          git config user.name "Auto Review Bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add content/reviews
+          git diff --cached --quiet || git commit -m "Auto-generated reviews"
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
