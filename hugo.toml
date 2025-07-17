@@ -3,3 +3,6 @@ title="Hounted Secrets"
 languageCode="en-us"
 enableRobotsTXT=true
 theme="PaperMod"
+
+[params.amazon]
+  tag = "dmaulikr-21"

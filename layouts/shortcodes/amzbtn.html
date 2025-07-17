@@ -1,0 +1,5 @@
+{{ $asin  := .Get "asin" }}
+{{ $label := .Get "label" | default "Buy on Amazon" }}
+<a href="https://www.amazon.in/dp/{{ $asin }}/?tag={{ site.Params.amazon.tag }}" target="_blank" rel="nofollow noopener noreferrer" class="button">
+  {{ $label }}
+</a>
