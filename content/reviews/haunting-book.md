@@ -6,9 +6,9 @@ title = 'Haunting Book'
 
 An unsettling page-turner.
 
-{{< amzlink asin="B0CLYF6TCD" title="Haunting Nights" >}}
+{{< amzlink asin="1444720724" title="The Shining" >}}
 
 ## Verdict
 Perfect for midnight chills.
 
-{{< amzbtn asin="B0CLYF6TCD" label="Grab your copy" >}}
+{{< amzbtn  asin="1444720724" label="Buy on Amazon" >}}
