@@ -1,1 +1,3 @@
 User-agent: *
+Disallow:
+Sitemap: https://dmaulikr.github.io/hounted-secrets-blog/sitemap.xml
