@@ -10,14 +10,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Generate reviews from CSV
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install openai
+
+      - name: Generate reviews from CSV with AI
+        env:
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
         run: .github/scripts/generate_reviews.py
+
       - name: Commit any new posts
         run: |
           git config user.name "Auto Review Bot"
           git config user.email "bot@users.noreply.github.com"
           git add content/reviews
-          git diff --cached --quiet || git commit -m "Auto-generated reviews"
+          git diff --cached --quiet || git commit -m "Auto-generated reviews with AI"
+
       - name: Push changes
         uses: ad-m/github-push-action@v0.8.0
         with:
