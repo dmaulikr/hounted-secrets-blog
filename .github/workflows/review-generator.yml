@@ -1,6 +1,12 @@
 name: Review-Generator
 permissions: { contents: write }
 on:
+  push:                       # ← new: run when these files change
+    branches: [ main ]
+    paths:
+      - 'data/reviews.csv'
+      - '.github/scripts/generate_reviews.py'
+      - 'templates/**'
   workflow_dispatch:        # run manually from the Actions tab
   schedule:
     - cron: '0 2 * * *'     # 07:30 IST every day
