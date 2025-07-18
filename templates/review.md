@@ -1,16 +1,29 @@
 ---
-title: "{{ .title }}"
-asin: "{{ .asin }}"
-date: "{{ .date }}"
+title: "{title}"
+asin: "{asin}"
+date: "{date}"
 draft: false
+description: "{blurb}"
+images: ["{img}"]
+cover:
+  image: "{img}"
+ai_filled: true
 ---
 
-{{ .blurb }}
+{blurb}
 
-{{< amzlink asin="{{ .asin }}" title="{{ .title }}" img="{{ .img }}" >}}
+## Quick summary
+{summary}
 
-## Verdict
+## Why we liked it 👍
+{pros}
 
-Perfect for midnight chills.
+## Why it might not work for you 👎
+{cons}
 
-{{< amzbtn asin="{{ .asin }}" label="Buy on Amazon" >}}
+## Full spoiler-free review
+{review}
+
+{{{{< amzlink asin="{asin}" title="{title}" img="{img}" >}}}}
+
+{{{{< amzbtn  asin="{asin}" label="Buy on Amazon" >}}}}

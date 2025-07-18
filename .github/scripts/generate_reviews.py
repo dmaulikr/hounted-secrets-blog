@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import csv, datetime, json, os, pathlib, textwrap
 import openai
-
+force = True        # rewrite even if file already exists
 openai.api_key = os.environ["OPENAI_KEY"]
 
 CSV      = pathlib.Path("data/reviews.csv")
@@ -85,5 +85,6 @@ with CSV.open(newline="") as f:
         )
 
         OUTDIR.mkdir(parents=True, exist_ok=True)
-        out_file.write_text(md)
-        print("WROTE", out_file)
+        if force or not out_file.exists():
+            out_file.write_text(md)
+            print("WROTE", out_file)
