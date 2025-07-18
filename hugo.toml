@@ -6,3 +6,7 @@ theme="PaperMod"
 
 [params.amazon]
   tag = "dmaulikr-21"
+[[menu.main]]
+  name = "Reviews"
+  url  = "/reviews/"
+  weight = 20
